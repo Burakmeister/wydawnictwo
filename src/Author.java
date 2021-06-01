@@ -1,6 +1,4 @@
-import java.io.Serializable;
-
-public class Author implements Serializable
+public class Author
 {
     private int nr;
     private String firstname;
@@ -8,9 +6,6 @@ public class Author implements Serializable
     private int age;
     private String authorId;
    
-    public Author()
-    {
-    }
     public Author(int nr, String firstname, String surname, int age, String authorId)
     {
         this.nr=nr;
