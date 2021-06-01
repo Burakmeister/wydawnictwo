@@ -3,8 +3,8 @@ public class Magazine extends LiteraryItem{
 
     public Magazine() {}
 
-    public Magazine(String isbn, long authorId, double price, String title, int quantity, String genre, int cycle) {
-        super(isbn, authorId, price, genre, quantity, title );
+    public Magazine(String isbn, Author author, double price, String title, int quantity, String genre, int cycle) {
+        super(isbn, author, price, genre, quantity, title );
         this.cycle = cycle;
     }
 

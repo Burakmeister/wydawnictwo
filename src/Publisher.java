@@ -3,12 +3,18 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+
 public class Publisher implements Serializable
 {
     private PlanningDepartment planningDepartment;
+    //private PrintingManagement printingManagement;
+    //private Shop shop;
+
     public Publisher()
     {
         this.planningDepartment = new PlanningDepartment();
+        //this.printingManagement = new PrintingManagement();
+        //this.shop = new Shop();
     }
 
     public void saveData()
