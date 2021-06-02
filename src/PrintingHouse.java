@@ -15,6 +15,7 @@ public class PrintingHouse {
     }
 
     public void print(PrintOrder order) {
-
+        order.getLiteraryItem().increaseQuantity(order.getCount());
+        order.setDone(true);
     }
 }

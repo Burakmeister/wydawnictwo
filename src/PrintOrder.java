@@ -1,11 +1,11 @@
 public class PrintOrder {
-    private String isbn;
+    private LiteraryItem literaryItem;
     private int count;
     private long printingHouseId;
     private boolean isDone;
 
-    public String getIsbn() {
-        return isbn;
+    public LiteraryItem getLiteraryItem() {
+        return literaryItem;
     }
 
     public int getCount() {
@@ -18,5 +18,21 @@ public class PrintOrder {
 
     public boolean isDone() {
         return isDone;
+    }
+
+    public void setLiteraryItem(LiteraryItem literaryItem) {
+        this.literaryItem = literaryItem;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public void setPrintingHouseId(long printingHouseId) {
+        this.printingHouseId = printingHouseId;
+    }
+
+    public void setDone(boolean done) {
+        isDone = done;
     }
 }
