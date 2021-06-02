@@ -3,10 +3,11 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import planning_department.*;
 
 public class Publisher implements Serializable
 {
-    private PlanningDepartment planningDepartment;
+    public PlanningDepartment planningDepartment;
     //private PrintingManagement printingManagement;
     //private Shop shop;
 
@@ -27,6 +28,7 @@ public class Publisher implements Serializable
         } 
         catch (Exception ex)
         {
+            ex = new Exception("Nie udalo sie otworzyc pliku!");
             ex.printStackTrace();
             System.exit(0);
         }
@@ -44,6 +46,7 @@ public class Publisher implements Serializable
         } 
         catch (Exception ex) 
         {
+            ex = new Exception("Nie udalo sie otworzyc pliku!");
             ex.printStackTrace();
             System.exit(0);
         }
