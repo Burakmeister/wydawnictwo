@@ -1,3 +1,5 @@
+package src;
+
 public class PrintingHouse {
     private long id;
     private boolean isAlbumPrintable;

@@ -1,11 +1,13 @@
+package src;
+
 public class PrintOrder {
-    private String isbn;
+    private Book book;
     private int count;
     private long printingHouseId;
     private boolean isDone;
 
-    public String getIsbn() {
-        return isbn;
+    public Book getBook() {
+        return book;
     }
 
     public int getCount() {
