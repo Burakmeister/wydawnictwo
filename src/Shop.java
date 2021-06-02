@@ -6,14 +6,16 @@ import java.util.ListIterator;
 public class Shop {
     private ArrayList<LiteraryItem> literaryItemList;
 
-    public Shop() {
+    private ShopInterface shopInterface;
+
+    public Shop(ShopInterface mshopInterface) {
         this.literaryItemList = new ArrayList<LiteraryItem>();
+        this.shopInterface = mshopInterface;
     }
 
-    public void sell(ArrayList<LiteraryItem> items) {
+    public void sell(ArrayList<LiteraryItem> items, int count) {
         for (LiteraryItem item : items) {
-            int count= 0;
-            if (item.getQuantity()<count) { //dopisac wyjatek
+            if (item.getQuantity()>=count) { //dopisac wyjatek
                 item.decreaseQuantity(count);
             }
         }
@@ -27,14 +29,11 @@ public class Shop {
         this.literaryItemList.add(literaryItem);
     }
 
-    public ReprintOrder orderReprint(String isbn, int count) {
-        for (LiteraryItem item : literaryItemList) {
-            if (item.getIsbn().equals(isbn)) {
-                ReprintOrder reprintOrder = new ReprintOrder(item, count);
-                return reprintOrder;
-            }
-        }
-        throw // wyjatek
+    public void orderReprint(LiteraryItem literaryItem, int count) {
+        ReprintOrder reprintOrder = new ReprintOrder(literaryItem, count);
+        shopInterface.reprint(reprintOrder);
+        //return reprintOrder;
     }
+
 
 }

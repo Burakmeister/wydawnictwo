@@ -1,11 +1,11 @@
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class PrintingManagement {
-    private List<PrintingHouse> listOfPrintingHouses;
+    private ArrayList<PrintingHouse> listOfPrintingHouses;
 
-    public PrintingManagement(List<PrintingHouse> listOfPrintingHouses) {
-        this.listOfPrintingHouses = listOfPrintingHouses;
+    public PrintingManagement() {
+        this.listOfPrintingHouses = new ArrayList<PrintingHouse>();
     }
 
     public void addPrintingHouse(PrintingHouse printingHouse) {
