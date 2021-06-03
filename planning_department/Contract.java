@@ -1,3 +1,5 @@
+package planning_department;
+
 public abstract class Contract 
 {
     protected int nr;

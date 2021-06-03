@@ -1,5 +1,9 @@
+package planning_department;
+
+import java.io.Serializable;
 import java.util.ArrayList;
-public class PlanningDepartment 
+import src.*;
+public class PlanningDepartment implements Serializable
 {
     private ArrayList<Author> listOfAuthors;
     private ArrayList<Contract> listOfContracts;

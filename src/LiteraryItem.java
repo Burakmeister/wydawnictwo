@@ -1,3 +1,6 @@
+package src;
+import planning_department.*;
+
 public abstract class LiteraryItem {
     public LiteraryItem() {}
 

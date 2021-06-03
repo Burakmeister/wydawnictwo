@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.ListIterator;
+=======
+package src;
+
+import java.util.List;
+>>>>>>> 13ac8906c945652e5c79aea95aaa02a02c31c635
 
 public class Shop {
     private ArrayList<LiteraryItem> literaryItemList;

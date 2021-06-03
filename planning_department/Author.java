@@ -1,4 +1,8 @@
-public class Author
+package planning_department;
+
+import java.io.Serializable;
+
+public class Author implements Serializable
 {
     private int nr;
     private String firstname;
@@ -40,6 +44,13 @@ public class Author
     }
     public String toString()
     {
-        return (nr + ")  " + firstname + "  " + surname + "  " + age);
+        return (nr + ")  " + authorId + "  "+ firstname + "  " + surname + "  " + age);
+    }
+    public boolean equals(Author a)
+    {
+        if(this.firstname.equals(a.firstname) && this.surname.equals(a.surname) && this.age == a.age && this.authorId.equals(a.authorId))
+            return true;
+        else
+            return false;
     }
 }

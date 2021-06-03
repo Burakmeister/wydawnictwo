@@ -1,3 +1,7 @@
+package src;
+
+import planning_department.*;
+
 public class Magazine extends LiteraryItem{
     private int cycle;
 
