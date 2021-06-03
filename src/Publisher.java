@@ -4,17 +4,17 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-public class Publisher implements Serializable
+public class Publisher implements Serializable, ShopInterface
 {
     private PlanningDepartment planningDepartment;
-    //private PrintingManagement printingManagement;
-    //private Shop shop;
+    public PrintingManagement printingManagement;
+    private Shop shop;
 
     public Publisher()
     {
-        this.planningDepartment = new PlanningDepartment();
-        //this.printingManagement = new PrintingManagement();
-        //this.shop = new Shop();
+        //this.planningDepartment = new PlanningDepartment();
+        this.printingManagement = new PrintingManagement();
+        this.shop = new Shop(this::reprint);
     }
 
     public void saveData()
@@ -48,5 +48,10 @@ public class Publisher implements Serializable
             System.exit(0);
         }
         return null;   
+    }
+
+    @Override
+    public void reprint(ReprintOrder reprintOrder) {
+        printingManagement.prepareReprint(reprintOrder);
     }
 }
