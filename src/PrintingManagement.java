@@ -1,13 +1,11 @@
-<<<<<<< HEAD
+package src;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
-=======
-package src;
 
 import java.util.List;
->>>>>>> 13ac8906c945652e5c79aea95aaa02a02c31c635
 
-public class PrintingManagement {
+public class PrintingManagement implements Serializable{
     private ArrayList<PrintingHouse> listOfPrintingHouses;
 
     public PrintingManagement() {

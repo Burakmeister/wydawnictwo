@@ -1,6 +1,8 @@
 package planning_department;
 
-public abstract class Contract 
+import java.io.Serializable;
+
+public abstract class Contract implements Serializable
 {
     protected Author author;
     protected float price;

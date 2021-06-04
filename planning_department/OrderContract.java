@@ -1,6 +1,6 @@
 package planning_department;
-
 import src.*;
+
 public class OrderContract extends Contract
 {
     private LiteraryItem item;
