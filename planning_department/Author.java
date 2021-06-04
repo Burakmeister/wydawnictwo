@@ -44,7 +44,7 @@ public class Author implements Serializable
     }
     public String toString()
     {
-        return (nr + ")  " + authorId + "  "+ firstname + "  " + surname + "  " + age);
+        return firstname + " " + surname + " " + age + " " + authorId;
     }
     public boolean equals(Author a)
     {
@@ -52,5 +52,21 @@ public class Author implements Serializable
             return true;
         else
             return false;
+    }
+    public void setFirstname(String firstname)
+    {
+        this.firstname=firstname;
+    }
+    public void setSurname(String surname)
+    {
+        this.surname=surname;
+    }
+    public void setAge(int age)
+    {
+        this.age=age;
+    }
+    public void setAuthorId(String authorId)
+    {
+        this.authorId=authorId;
     }
 }
