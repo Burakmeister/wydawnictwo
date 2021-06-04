@@ -7,19 +7,17 @@ import planning_department.*;
 
 public class Publisher implements Serializable, ShopInterface
 {
-<<<<<<< HEAD:src/Publisher.java
     private PlanningDepartment planningDepartment;
     public PrintingManagement printingManagement;
     private Shop shop;
-=======
     public PlanningDepartment planningDepartment;
-    //private PrintingManagement printingManagement;
-    //private Shop shop;
->>>>>>> 13ac8906c945652e5c79aea95aaa02a02c31c635:Publisher.java
+
+
+    final private String filePath = "data.bin";
 
     public Publisher()
     {
-        //this.planningDepartment = new PlanningDepartment();
+        this.planningDepartment = new PlanningDepartment();
         this.printingManagement = new PrintingManagement();
         this.shop = new Shop(this::reprint);
     }
@@ -28,13 +26,13 @@ public class Publisher implements Serializable, ShopInterface
     {
         try 
         {
-            ObjectOutputStream save = new ObjectOutputStream(new FileOutputStream("data.bin"));
+            ObjectOutputStream save = new ObjectOutputStream(new FileOutputStream(filePath));
             save.writeObject(this);
             save.close();
         } 
         catch (Exception ex)
         {
-            ex = new Exception("Nie udalo sie otworzyc pliku!");
+            ex = new Exception("Nie udalo sie otworzyc pliku do zapisu!");
             ex.printStackTrace();
             System.exit(0);
         }
@@ -44,7 +42,7 @@ public class Publisher implements Serializable, ShopInterface
     {
         try 
         {
-            ObjectInputStream load = new ObjectInputStream(new FileInputStream("data.bin"));
+            ObjectInputStream load = new ObjectInputStream(new FileInputStream(filePath));
             Publisher sec = new Publisher();
             sec = ( Publisher )load.readObject();
             load.close();
@@ -52,13 +50,11 @@ public class Publisher implements Serializable, ShopInterface
         } 
         catch (Exception ex) 
         {
-            ex = new Exception("Nie udalo sie otworzyc pliku!");
+            ex = new Exception("Nie udalo sie otworzyc pliku do odczytu!");
             ex.printStackTrace();
-            System.exit(0);
+            return new Publisher();
         }
-        return null;   
     }
-
     @Override
     public void reprint(ReprintOrder reprintOrder) {
         printingManagement.prepareReprint(reprintOrder);

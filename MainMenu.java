@@ -9,6 +9,7 @@ public class MainMenu extends JFrame implements ActionListener
 {
     private JPanel panelBack;
     private JButton but1, but2, but3, but4;
+    private ImageIcon iconImage;
 
     public MainMenu() 
     {
@@ -16,7 +17,7 @@ public class MainMenu extends JFrame implements ActionListener
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(1, 1, 680, 510);
         setLocationRelativeTo(null);
-        ImageIcon iconImage = new ImageIcon(this.getClass().getResource("images/Icon.png"));
+        iconImage = new ImageIcon(this.getClass().getResource("images/Icon.png"));
         setIconImage(iconImage.getImage());
         setResizable(false);
         panelBack = new Background1();
@@ -52,7 +53,7 @@ public class MainMenu extends JFrame implements ActionListener
     {
         if(e.getSource() == but1){
             setVisible(false);
-            PlanningDepartmentWindow planningDepartment = new PlanningDepartmentWindow(0);
+            new PlanningDepartmentWindow(iconImage, this);
         }
 
         if(e.getSource() == but2){
@@ -71,6 +72,6 @@ public class MainMenu extends JFrame implements ActionListener
 
     public static void main(String[] args)
     {
-        MainMenu menu = new MainMenu();
+        new MainMenu();
     }    
 }
