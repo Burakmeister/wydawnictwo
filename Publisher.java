@@ -11,6 +11,8 @@ public class Publisher implements Serializable
     //private PrintingManagement printingManagement;
     //private Shop shop;
 
+    final private String filePath = "data.bin";
+
     public Publisher()
     {
         this.planningDepartment = new PlanningDepartment();
@@ -22,13 +24,13 @@ public class Publisher implements Serializable
     {
         try 
         {
-            ObjectOutputStream save = new ObjectOutputStream(new FileOutputStream("data.bin"));
+            ObjectOutputStream save = new ObjectOutputStream(new FileOutputStream(filePath));
             save.writeObject(this);
             save.close();
         } 
         catch (Exception ex)
         {
-            ex = new Exception("Nie udalo sie otworzyc pliku!");
+            ex = new Exception("Nie udalo sie otworzyc pliku do zapisu!");
             ex.printStackTrace();
             System.exit(0);
         }
@@ -38,7 +40,7 @@ public class Publisher implements Serializable
     {
         try 
         {
-            ObjectInputStream load = new ObjectInputStream(new FileInputStream("data.bin"));
+            ObjectInputStream load = new ObjectInputStream(new FileInputStream(filePath));
             Publisher sec = new Publisher();
             sec = ( Publisher )load.readObject();
             load.close();
@@ -46,10 +48,9 @@ public class Publisher implements Serializable
         } 
         catch (Exception ex) 
         {
-            ex = new Exception("Nie udalo sie otworzyc pliku!");
+            ex = new Exception("Nie udalo sie otworzyc pliku do odczytu!");
             ex.printStackTrace();
-            System.exit(0);
+            return new Publisher();
         }
-        return null;   
     }
 }

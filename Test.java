@@ -28,9 +28,7 @@ public class Test
                 }
                 default:
                 break;
-
             }
-
         }
     }
 }
