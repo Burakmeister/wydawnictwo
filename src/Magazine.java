@@ -7,13 +7,17 @@ public class Magazine extends LiteraryItem{
 
     public Magazine() {}
 
-    public Magazine(String isbn, Author author, double price, String title, int quantity, String genre, int cycle) {
-        super(isbn, author, price, genre, quantity, title );
+    public Magazine(String isbn, long authorId, double price, String title, int quantity, String genre, int cycle) {
+        super(isbn, authorId, price, genre, quantity, title );
         this.cycle = cycle;
     }
 
     public int getCycle() {
         return cycle;
+    }
+
+    public void setCycle(int cycle) {
+        this.cycle = cycle;
     }
 
     @Override
@@ -26,5 +30,19 @@ public class Magazine extends LiteraryItem{
                 ", title='" + title + '\'' +
                 ", cycle=" + cycle +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+
+        if (!(obj instanceof Magazine)) {
+            return false;
+        }
+        Magazine magazine = (Magazine) obj;
+
+        return isbn.equals(magazine.getIsbn());
     }
 }
