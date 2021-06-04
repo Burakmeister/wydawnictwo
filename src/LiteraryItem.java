@@ -4,9 +4,9 @@ import planning_department.*;
 public abstract class LiteraryItem {
     public LiteraryItem() {}
 
-    public LiteraryItem(String isbn, Author author, double price, String genre, int quantity, String title) {
+    public LiteraryItem(String isbn, long authorId, double price, String genre, int quantity, String title) {
         this.isbn = isbn;
-        this.author = author;
+        this.authorId = authorId;
         this.price = price;
         this.genre = genre;
         this.quantity = quantity;
@@ -14,7 +14,7 @@ public abstract class LiteraryItem {
     }
 
     protected String isbn;
-    protected Author author;
+    protected long authorId;
     protected double price;
     protected String genre;
     protected int quantity;
@@ -24,8 +24,8 @@ public abstract class LiteraryItem {
         return isbn;
     }
 
-    public Author getAuthor() {
-        return author;
+    public long getAuthorId() {
+        return authorId;
     }
 
     public double getPrice() {
@@ -46,8 +46,5 @@ public abstract class LiteraryItem {
         this.quantity += count;
     }
 
-    @Override
-    public String toString() {
-        return "";
-    }
+    public abstract String toString();
 }
