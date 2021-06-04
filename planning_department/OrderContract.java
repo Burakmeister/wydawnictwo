@@ -1,13 +1,13 @@
 package planning_department;
-
 import src.*;
+
 public class OrderContract extends Contract
 {
     private LiteraryItem item;
     private boolean status;
-    public OrderContract(int nr, float price, Author author, String date, LiteraryItem item, boolean status)
+    public OrderContract(float price, Author author, String date, LiteraryItem item, boolean status)
     {
-        super(nr, price, author, date);
+        super(price, author, date);
         this.item = item;
         this.status = status;
     }
@@ -25,6 +25,6 @@ public class OrderContract extends Contract
     }
     public String toString()
     {
-        return (nr + ")  " + price + "  " + date + "  " + status);
+        return (price + "  " + date + "  " + status);
     }
 }

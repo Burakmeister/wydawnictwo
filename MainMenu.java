@@ -57,12 +57,12 @@ public class MainMenu extends JFrame implements ActionListener
         }
 
         if(e.getSource() == but2){
-            setVisible(false);
+            //setVisible(false);
             //PrintingManagementWindow printingManagement = new PrintingManagementWindow();
         }
 
         if(e.getSource() == but3){
-            setVisible(false);
+            //setVisible(false);
             //ShopWindow shop = new ShopWindow();
         }
         

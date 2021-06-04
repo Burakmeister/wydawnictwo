@@ -145,8 +145,8 @@ public class PlanningDepartmentWindow extends JFrame implements ActionListener
             {
                 if(!contractsMenuIsChecked)
                     new AuthorMenu(publisher.planningDepartment.getAuthor(k*20+i+1), this);
-                //else
-                //    new ContractMenu(publisher.planningDepartment.getAuthor(k*20+i+1), this);
+                else
+                    new ContractMenu(publisher.planningDepartment.getAuthor(k*20+i+1), this);
             }
         
     }

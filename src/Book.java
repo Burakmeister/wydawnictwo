@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-import java.util.Objects;
-
-=======
 package src;
+import java.util.Objects;
 import planning_department.*;
->>>>>>> 13ac8906c945652e5c79aea95aaa02a02c31c635
+
 public class Book extends LiteraryItem{
     protected boolean isAlbum;
 

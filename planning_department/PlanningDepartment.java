@@ -16,7 +16,7 @@ public class PlanningDepartment implements Serializable
 
     public Contract getContract(int nr)
     {
-        return listOfContracts.get(nr-1);
+        return listOfContracts.get(nr);
     }
     public Author getAuthor(int nr)
     {
@@ -24,11 +24,11 @@ public class PlanningDepartment implements Serializable
     }
     public void addLongContract(float price, Author author, String date)
     {
-        listOfContracts.add(new LongContract(listOfContracts.size()+1, price, author, date));
+        listOfContracts.add(new LongContract(price, author, date));
     }
     public void addOrderContract(float price, Author author, String date, LiteraryItem item)
     {
-        listOfContracts.add(new OrderContract(listOfContracts.size()+1, price, author, date, item, false));
+        listOfContracts.add(new OrderContract(price, author, date, item, false));
     }
     public void addAuthor(String firstname, String surname, int age, String authorId)
     {
@@ -36,11 +36,7 @@ public class PlanningDepartment implements Serializable
     }
     public void deleteContract(int idx)
     {
-        listOfContracts.remove(idx-1);
-        for(int i=idx-1 ; i<listOfContracts.size(); i++)
-        {
-            listOfContracts.get(i).setNr(i+1);
-        }
+        listOfContracts.remove(idx);
     }
     public void deleteAuthor(int idx)
     {
@@ -56,6 +52,6 @@ public class PlanningDepartment implements Serializable
     }
     public int howManyContracts()
     {
-        return listOfAuthors.size();
+        return listOfContracts.size();
     }
 }

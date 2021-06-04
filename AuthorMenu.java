@@ -1,8 +1,12 @@
-import javax.swing.*;
 import planning_department.Author;
-//import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 public class AuthorMenu extends JFrame implements ActionListener
 {
@@ -26,7 +30,7 @@ public class AuthorMenu extends JFrame implements ActionListener
 
     public AuthorMenu(Author a, PlanningDepartmentWindow mainWindow) 
     {
-        super("Edycja autora");
+        super(a.toString());
         this.mainWindow=mainWindow;
         this.author = a;
         authorWillAdded=false;

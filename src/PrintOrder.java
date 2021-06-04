@@ -1,22 +1,13 @@
 package src;
 
 public class PrintOrder {
-<<<<<<< HEAD
     private LiteraryItem literaryItem;
-=======
-    private Book book;
->>>>>>> 13ac8906c945652e5c79aea95aaa02a02c31c635
     private int count;
     private long printingHouseId;
     private boolean isDone;
 
-<<<<<<< HEAD
     public LiteraryItem getLiteraryItem() {
         return literaryItem;
-=======
-    public Book getBook() {
-        return book;
->>>>>>> 13ac8906c945652e5c79aea95aaa02a02c31c635
     }
 
     public int getCount() {
