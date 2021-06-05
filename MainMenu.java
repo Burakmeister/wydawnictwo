@@ -23,8 +23,8 @@ public class MainMenu extends JFrame implements ActionListener
         panelBack = new Background1();
         panelBack.setLayout(null);
 
-        but1 = new JButton("Dzial programowy");
-        but2 = new JButton("Drukowanie");
+        but1 = new JButton("Dzial Programowy");
+        but2 = new JButton("Dzial Druku");
         but3 = new JButton("Sklep");
         but4 = new JButton("Wyjscie");
         but1.setFont(new Font("Arial", (Font.BOLD), 16));
@@ -62,8 +62,8 @@ public class MainMenu extends JFrame implements ActionListener
         }
 
         if(e.getSource() == but3){
-            //setVisible(false);
-            //ShopWindow shop = new ShopWindow();
+            setVisible(false);
+            //ShopWindow shop = new ShopWindow(iconImage, this);
         }
         
         if(e.getSource() == but4)

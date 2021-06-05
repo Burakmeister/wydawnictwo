@@ -1,4 +1,5 @@
 import planning_department.Author;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -107,7 +108,6 @@ public class AuthorMenu extends JFrame implements ActionListener
         cancel.setBounds(x*9/10-x*5/16, y*3/4, x*1/4, x*1/7);
         panel.add(firstname);
         panel.add(surname);
-
         panel.add(age);
         panel.add(authorId);
         panel.add(add);
@@ -146,13 +146,16 @@ public class AuthorMenu extends JFrame implements ActionListener
                 int i;
                 for(i=1; !mainWindow.publisher.planningDepartment.getAuthor(i).equals(author); i++)
                 {
-                    System.out.println("" + author);
-                    System.out.println("" + mainWindow.publisher.planningDepartment.getAuthor(i));
                 }
                 mainWindow.publisher.planningDepartment.getAuthor(i).setFirstname(firstnameData);
                 mainWindow.publisher.planningDepartment.getAuthor(i).setSurname(surnameData);
                 mainWindow.publisher.planningDepartment.getAuthor(i).setAge(ageData);
                 mainWindow.publisher.planningDepartment.getAuthor(i).setAuthorId(authorIdData);
+                for(int j=0 ; j<mainWindow.publisher.planningDepartment.howManyContracts() ; j++ )
+                    if(mainWindow.publisher.planningDepartment.getContract(j).getAuthor().equals(author))
+                    {
+                        mainWindow.publisher.planningDepartment.getContract(j).setAuthor(mainWindow.publisher.planningDepartment.getAuthor(i));
+                    }
                 mainWindow.publisher.saveData();
                 mainWindow.refreshPage();
             }

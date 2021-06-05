@@ -6,24 +6,27 @@ import java.awt.event.ActionListener;
 
 public class PlanningDepartmentWindow extends JFrame implements ActionListener
 {
-    private final int x=900;    //szerokość okna
-    private final int y=675;    //wysokość okna
+    public final int x=900;    //szerokość okna
+    public final int y=675;    //wysokość okna
 
     private MainMenu mainMenu;
     private boolean contractsMenuIsChecked;
 
+    public ImageIcon iconImage;
+    private ContractMenu contracts;
     private JRadioButton contractsMenu, authorsMenu;
-    private JPanel panel;
-    private JButton []but;
-    private JButton next, prev;
+    public JPanel panel;
+    public JButton []but;
+    public JButton next, prev;
     private JButton addAuthor;
-    private JButton back;
+    public JButton back;
     private int k;
     public Publisher publisher;
-
+    
     public PlanningDepartmentWindow(ImageIcon iconImage, MainMenu mainMenu) 
     {
         super("Dzial programowy");
+        this.iconImage=iconImage;
         contractsMenuIsChecked = false;
         this.mainMenu=mainMenu;
         this.k=0;
@@ -83,7 +86,6 @@ public class PlanningDepartmentWindow extends JFrame implements ActionListener
         panel.add(addAuthor);
         panel.add(back);
         panel.add(next);
-
         add(panel);
         setVisible(true);
     }
@@ -111,10 +113,12 @@ public class PlanningDepartmentWindow extends JFrame implements ActionListener
         {
             contractsMenuIsChecked = false;
         }
+
         if(e.getSource() == contractsMenu)
         {
             contractsMenuIsChecked = true;
         }
+
         if(e.getSource() == addAuthor)
         {
             new AuthorMenu(this);
@@ -144,17 +148,21 @@ public class PlanningDepartmentWindow extends JFrame implements ActionListener
             if(e.getSource() == but[i])
             {
                 if(!contractsMenuIsChecked)
+                {
                     new AuthorMenu(publisher.planningDepartment.getAuthor(k*20+i+1), this);
+                }
                 else
-                    new ContractMenu(publisher.planningDepartment.getAuthor(k*20+i+1), this);
+                    contracts = new ContractMenu(publisher.planningDepartment.getAuthor(k*20+i+1), this);
             }
-        
     }
 
     private void nextPage()
     {
-        this.k++;
-        refreshPage();
+        if(publisher.planningDepartment.howManyAuthors() > k*20+20)
+        {
+            this.k++;
+            refreshPage();
+        }
     }
 
     private void prevPage()
@@ -164,5 +172,26 @@ public class PlanningDepartmentWindow extends JFrame implements ActionListener
             this.k--;
             refreshPage();
         }
+    }
+
+    public void comeback()
+    {
+        add(panel);
+        for(int i=0 ; i<20 ; i++)
+        {
+            but[i].removeActionListener(contracts);
+            but[i].addActionListener(this);
+        }
+        prev.removeActionListener(contracts);
+        next.removeActionListener(contracts);
+        back.removeActionListener(contracts);
+        panel.add(prev);
+        panel.add(next);
+        panel.add(back);
+        prev.addActionListener(this);
+        next.addActionListener(this);
+        back.addActionListener(this);
+        refreshPage();
+        setTitle("Dzial programowy");
     }
 }
