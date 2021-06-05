@@ -1,12 +1,16 @@
+
 package src;
-import java.util.Objects;
 import planning_department.*;
 
-public class Book extends LiteraryItem{
+import java.io.Serializable;
+
+public class Book extends LiteraryItem implements Serializable {
     protected boolean isAlbum;
 
-    public Book(String isbn, long authorId, double price, String title, int quantity, String genre) {
-        super(isbn, authorId, price, genre, quantity, title);
+    public Book(String isbn, Author author, double price, String title, int quantity, String genre, boolean isAlbum) {
+        super(isbn, author, price, genre, quantity, title);
+        this.isAlbum = isAlbum;
+
     }
 
     public boolean isAlbum() {
@@ -14,14 +18,11 @@ public class Book extends LiteraryItem{
     }
 
     public String toString() {
-        return "Book{" +
-                "isAlbum=" + isAlbum +
-                "isbn='" + isbn + '\'' +
-                ", price=" + price +
-                ", genre='" + genre + '\'' +
-                ", quantity=" + quantity +
-                ", title='" + title + '\'' +
-                '}';
+        return title+" Cena:"+price+" ilość w magazynie:"+quantity;
+    }
+
+    public String bookProperties() {
+        return title+" gatunek literacki:"+" Cena:"+price+" ilość w magazynie:"+quantity;
     }
 
     @Override

@@ -1,10 +1,20 @@
 package src;
 
-public class PrintOrder {
+import java.io.Serializable;
+
+public class PrintOrder implements Serializable {
+
     private LiteraryItem literaryItem;
+
     private int count;
-    private long printingHouseId;
+    private PrintingHouse printingHouse;
     private boolean isDone;
+
+    public PrintOrder(LiteraryItem literaryItem, int count) {
+        this.literaryItem = literaryItem;
+        this.count = count;
+        this.isDone = false;
+    }
 
     public LiteraryItem getLiteraryItem() {
         return literaryItem;
@@ -14,8 +24,8 @@ public class PrintOrder {
         return count;
     }
 
-    public long getPrintingHouseId() {
-        return printingHouseId;
+    public PrintingHouse getPrintingHouse() {
+        return printingHouse;
     }
 
     public boolean isDone() {
@@ -30,11 +40,16 @@ public class PrintOrder {
         this.count = count;
     }
 
-    public void setPrintingHouseId(long printingHouseId) {
-        this.printingHouseId = printingHouseId;
+    public void setPrintingHouse(PrintingHouse printingHouse) {
+        this.printingHouse = printingHouse;
     }
 
     public void setDone(boolean done) {
         isDone = done;
+    }
+
+    @Override
+    public String toString() {
+        return literaryItem.getTitle()+" zamowione egzemplarze: "+count;
     }
 }

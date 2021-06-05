@@ -46,6 +46,23 @@ public class Author implements Serializable
     {
         return firstname + " " + surname + " " + age + " " + authorId;
     }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setAuthorId(String authorId) {
+        this.authorId = authorId;
+    }
+
     public boolean equals(Author a)
     {
         if(this.firstname.equals(a.firstname) && this.surname.equals(a.surname) && this.age == a.age && this.authorId.equals(a.authorId))

@@ -1,22 +1,18 @@
 package src;
-
-import java.util.Collection;
-import java.util.Iterator;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.ListIterator;
 
-public class Shop implements Serializable{
+public class Shop implements Serializable {
     private ArrayList<LiteraryItem> literaryItemList;
 
-    private ShopInterface shopInterface;
+//    private ShopInterface shopInterface;
 
-    public Shop(ShopInterface mshopInterface) {
+    public Shop(/*ShopInterface mshopInterface*/) {
         this.literaryItemList = new ArrayList<LiteraryItem>();
-        this.shopInterface = mshopInterface;
+//        this.shopInterface = mshopInterface;
     }
 
-    public void sell(ArrayList<LiteraryItem> items, int count) {
+    public void sell(ArrayList<LiteraryItem> items, int count) throws WrongNumberException, OutOfStockExeption {
         for (LiteraryItem item : items) {
             if (item.getQuantity()>=count) { //dopisac wyjatek
                 item.decreaseQuantity(count);
@@ -32,10 +28,10 @@ public class Shop implements Serializable{
         this.literaryItemList.add(literaryItem);
     }
 
-    public void orderReprint(LiteraryItem literaryItem, int count) {
-        ReprintOrder reprintOrder = new ReprintOrder(literaryItem, count);
-        shopInterface.reprint(reprintOrder);
-        //return reprintOrder;
+    public PrintOrder orderReprint(LiteraryItem literaryItem, int count) {
+        PrintOrder reprintOrder = new PrintOrder(literaryItem, count);
+        //shopInterface.reprint(reprintOrder);
+        return reprintOrder;
     }
 
 
