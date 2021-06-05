@@ -1,22 +1,15 @@
-<<<<<<< HEAD
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.ArrayList;
-import java.util.ListIterator;
-=======
 package src;
+import java.io.Serializable;
+import java.util.ArrayList;
 
-import java.util.List;
->>>>>>> 13ac8906c945652e5c79aea95aaa02a02c31c635
-
-public class Shop {
+public class Shop implements Serializable {
     private ArrayList<LiteraryItem> literaryItemList;
 
     private ShopInterface shopInterface;
 
-    public Shop(ShopInterface mshopInterface) {
+    public Shop(/*ShopInterface mshopInterface*/) {
         this.literaryItemList = new ArrayList<LiteraryItem>();
-        this.shopInterface = mshopInterface;
+//        this.shopInterface = mshopInterface;
     }
 
     public void sell(ArrayList<LiteraryItem> items, int count) {

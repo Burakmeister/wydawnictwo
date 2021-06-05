@@ -1,3 +1,4 @@
+import src.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -7,10 +8,10 @@ import planning_department.*;
 
 public class Publisher implements Serializable, ShopInterface
 {
-    private PlanningDepartment planningDepartment;
-    public PrintingManagement printingManagement;
-    private Shop shop;
     public PlanningDepartment planningDepartment;
+    public PrintingManagement printingManagement;
+    public Shop shop;
+
 
 
     final private String filePath = "data.bin";
@@ -19,7 +20,8 @@ public class Publisher implements Serializable, ShopInterface
     {
         this.planningDepartment = new PlanningDepartment();
         this.printingManagement = new PrintingManagement();
-        this.shop = new Shop(this::reprint);
+        this.shop = new Shop();
+//        this::reprint
     }
 
     public void saveData()

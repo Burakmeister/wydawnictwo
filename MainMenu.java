@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class MainMenu extends JFrame implements ActionListener
 {
@@ -17,7 +18,7 @@ public class MainMenu extends JFrame implements ActionListener
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(1, 1, 680, 510);
         setLocationRelativeTo(null);
-        iconImage = new ImageIcon(this.getClass().getResource("images/Icon.png"));
+        iconImage = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("images\\Icon.png")));
         setIconImage(iconImage.getImage());
         setResizable(false);
         panelBack = new Background1();
@@ -63,7 +64,7 @@ public class MainMenu extends JFrame implements ActionListener
 
         if(e.getSource() == but3){
             setVisible(false);
-            //ShopWindow shop = new ShopWindow();
+            ShopWindow shop = new ShopWindow(iconImage, this);
         }
         
         if(e.getSource() == but4)

@@ -1,6 +1,8 @@
 package src;
 
-public class PrintingHouse {
+import java.io.Serializable;
+
+public class PrintingHouse implements Serializable {
     private long id;
     private boolean isAlbumPrintable;
 

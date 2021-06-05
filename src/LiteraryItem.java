@@ -1,7 +1,9 @@
 package src;
 import planning_department.*;
 
-public abstract class LiteraryItem {
+import java.io.Serializable;
+
+public abstract class LiteraryItem implements Serializable {
     public LiteraryItem() {}
 
     public LiteraryItem(String isbn, long authorId, double price, String genre, int quantity, String title) {

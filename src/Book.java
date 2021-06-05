@@ -1,11 +1,10 @@
-<<<<<<< HEAD
-import java.util.Objects;
 
-=======
 package src;
 import planning_department.*;
->>>>>>> 13ac8906c945652e5c79aea95aaa02a02c31c635
-public class Book extends LiteraryItem{
+
+import java.io.Serializable;
+
+public class Book extends LiteraryItem implements Serializable {
     protected boolean isAlbum;
 
     public Book(String isbn, long authorId, double price, String title, int quantity, String genre) {

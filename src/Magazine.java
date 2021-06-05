@@ -2,7 +2,9 @@ package src;
 
 import planning_department.*;
 
-public class Magazine extends LiteraryItem{
+import java.io.Serializable;
+
+public class Magazine extends LiteraryItem implements Serializable {
     private int cycle;
 
     public Magazine() {}
