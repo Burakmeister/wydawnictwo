@@ -1,12 +1,14 @@
 package src;
 import planning_department.*;
 
-public abstract class LiteraryItem {
+import java.io.Serializable;
+
+public abstract class LiteraryItem implements Serializable {
     public LiteraryItem() {}
 
-    public LiteraryItem(String isbn, long authorId, double price, String genre, int quantity, String title) {
+    public LiteraryItem(String isbn, Author author, double price, String genre, int quantity, String title) {
         this.isbn = isbn;
-        this.authorId = authorId;
+        this.author = author;
         this.price = price;
         this.genre = genre;
         this.quantity = quantity;
@@ -14,7 +16,7 @@ public abstract class LiteraryItem {
     }
 
     protected String isbn;
-    protected long authorId;
+    protected Author author;
     protected double price;
     protected String genre;
     protected int quantity;
@@ -24,8 +26,8 @@ public abstract class LiteraryItem {
         return isbn;
     }
 
-    public long getAuthorId() {
-        return authorId;
+    public Author getAuthor() {
+        return author;
     }
 
     public double getPrice() {
@@ -38,7 +40,13 @@ public abstract class LiteraryItem {
 
     public String getTitle() { return title; }
 
-    public void decreaseQuantity(int count) {
+    public void decreaseQuantity(int count) throws WrongNumberException, OutOfStockExeption{
+        if (count<0 || count==0) {
+            throw new WrongNumberException(count);
+        }
+        if (count>quantity) {
+            throw new OutOfStockExeption(this);
+        }
         this.quantity -= count;
     }
 

@@ -8,8 +8,8 @@ import src.*;
 
 public class Publisher implements Serializable//, ShopInterface
 {
-    //public PrintingManagement printingManagement;
-    //private Shop shop;
+    public PrintingManagement printingManagement;
+    public Shop shop;
     public PlanningDepartment planningDepartment;
 
 
@@ -18,8 +18,9 @@ public class Publisher implements Serializable//, ShopInterface
     public Publisher()
     {
         this.planningDepartment = new PlanningDepartment();
-        //this.printingManagement = new PrintingManagement();
-        //this.shop = new Shop(this::reprint);
+        this.printingManagement = new PrintingManagement();
+        this.shop = new Shop();
+//        this::reprint
     }
 
     public void saveData()
