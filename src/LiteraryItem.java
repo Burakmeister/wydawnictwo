@@ -6,9 +6,9 @@ import java.io.Serializable;
 public abstract class LiteraryItem implements Serializable {
     public LiteraryItem() {}
 
-    public LiteraryItem(String isbn, long authorId, double price, String genre, int quantity, String title) {
+    public LiteraryItem(String isbn, Author author, double price, String genre, int quantity, String title) {
         this.isbn = isbn;
-        this.authorId = authorId;
+        this.author = author;
         this.price = price;
         this.genre = genre;
         this.quantity = quantity;
@@ -16,7 +16,7 @@ public abstract class LiteraryItem implements Serializable {
     }
 
     protected String isbn;
-    protected long authorId;
+    protected Author author;
     protected double price;
     protected String genre;
     protected int quantity;
@@ -26,8 +26,8 @@ public abstract class LiteraryItem implements Serializable {
         return isbn;
     }
 
-    public long getAuthorId() {
-        return authorId;
+    public Author getAuthor() {
+        return author;
     }
 
     public double getPrice() {

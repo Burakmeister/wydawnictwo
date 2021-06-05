@@ -7,8 +7,10 @@ import java.io.Serializable;
 public class Book extends LiteraryItem implements Serializable {
     protected boolean isAlbum;
 
-    public Book(String isbn, long authorId, double price, String title, int quantity, String genre) {
-        super(isbn, authorId, price, genre, quantity, title);
+    public Book(String isbn, Author author, double price, String title, int quantity, String genre, boolean isAlbum) {
+        super(isbn, author, price, genre, quantity, title);
+        this.isAlbum = isAlbum;
+
     }
 
     public boolean isAlbum() {

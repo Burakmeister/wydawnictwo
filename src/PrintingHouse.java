@@ -3,17 +3,17 @@ package src;
 import java.io.Serializable;
 
 public class PrintingHouse implements Serializable {
-    private long id;
+//    private long id;
     private boolean isAlbumPrintable;
 
-    public PrintingHouse(boolean isAlbumPrintable, long id) {
-        this.id = id;
+    public PrintingHouse(boolean isAlbumPrintable) {
+//        this.id = id;
         this.isAlbumPrintable = isAlbumPrintable;
     }
 
-    public long getId() {
-        return id;
-    }
+//    public long getId() {
+//        return id;
+//    }
 
     public boolean isAlbumPrintable() {
         return isAlbumPrintable;

@@ -10,17 +10,25 @@ public class PrintingManagement implements Serializable {
     public PrintingManagement() {
         this.listOfPrintingHouses = new ArrayList<>();
         this.listOfPrintOrders = new ArrayList<>();
+        PrintingHouse printingHouse0 = new PrintingHouse(false);
+        listOfPrintingHouses.add(printingHouse0);
+        PrintingHouse printingHouse1 = new PrintingHouse(false);
+        listOfPrintingHouses.add(printingHouse1);
+        PrintingHouse printingHouse2 = new PrintingHouse(true);
+        listOfPrintingHouses.add(printingHouse2);
     }
 
-    public void addPrintingHouse() {
-        PrintingHouse printingHouse;
-        for (int i = 0; i<3; i++) {
-            if (i == 2) {
-                printingHouse = new PrintingHouse(true, i);
-            }else  printingHouse = new PrintingHouse(false, i);
-            listOfPrintingHouses.add(printingHouse);
-        }
-    }
+
+
+//    public void addPrintingHouse() {
+//        PrintingHouse printingHouse;
+//        for (int i = 0; i<3; i++) {
+//            if (i == 2) {
+//                printingHouse = new PrintingHouse(true);
+//            }else  printingHouse = new PrintingHouse(false);
+//            listOfPrintingHouses.add(printingHouse);
+//        }
+//    }
 
     public void addPrintOrder(PrintOrder order) {
         listOfPrintOrders.add(order);
@@ -34,16 +42,16 @@ public class PrintingManagement implements Serializable {
         return listOfPrintOrders;
     }
 
-    public PrintOrder prepareReprint(PrintOrder reprintOrder) {
-//        PrintOrder printOrder = new PrintOrder();
-//        reprintOrder.setCount(reprintOrder.getCount());
-        Random generator = new Random();
-        reprintOrder.setLiteraryItem(reprintOrder.getLiteraryItem());
-        if (reprintOrder.getLiteraryItem() instanceof Book) {
-            reprintOrder.setPrintingHouseId(2);
-        }else reprintOrder.setPrintingHouseId(generator.nextInt(1));
-        return reprintOrder;
-    }
+//    public PrintOrder prepareReprint(PrintOrder reprintOrder) {
+////        PrintOrder printOrder = new PrintOrder();
+////        reprintOrder.setCount(reprintOrder.getCount());
+//        Random generator = new Random();
+//        reprintOrder.setLiteraryItem(reprintOrder.getLiteraryItem());
+//        if (reprintOrder.getLiteraryItem() instanceof Book) {
+//            reprintOrder.setPrintingHouseId(2);
+//        }else reprintOrder.setPrintingHouseId(generator.nextInt(1));
+//        return reprintOrder;
+//    }
 }
 
 //reprintOrder.getLiteraryItem() instanceof Book && ((Book) reprintOrder.getLiteraryItem()).isAlbum()

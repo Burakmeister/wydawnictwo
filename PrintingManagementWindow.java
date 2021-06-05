@@ -1,4 +1,6 @@
 import src.OutOfStockExeption;
+import src.PrintOrder;
+import src.PrintingHouse;
 import src.WrongNumberException;
 
 import javax.swing.*;
@@ -96,16 +98,32 @@ public class PrintingManagementWindow extends JFrame implements ActionListener {
         for (int i=0; i<20; i++) {
             if (e.getSource() == but[i])
             {
-                int count = Integer.parseInt(JOptionPane.showInputDialog("Podaj ilość którą chcesz zakupić"));
-//                    new LiteraryItemMenu(publisher.shop.getLiteraryItems().get(k*20+i),this );
-                try {
-                    publisher.shop.getLiteraryItems().get(k*20+i).decreaseQuantity(count);
-                } catch (WrongNumberException wrongNumberException) {
-                    JOptionPane.showMessageDialog(null, wrongNumberException.getMessage(),"Uwaga", JOptionPane.ERROR_MESSAGE);
-                    System.out.println(wrongNumberException.getMessage());
-                } catch (OutOfStockExeption outOfStockExeption) {
-                    JOptionPane.showMessageDialog(null, outOfStockExeption.getMessage(),"Uwaga", JOptionPane.ERROR_MESSAGE);
-                    publisher.printingManagement.addPrintOrder(publisher.shop.orderReprint(outOfStockExeption.getLiteraryItem(),0));
+                PrintOrder order = publisher.printingManagement.getListOfPrintOrders().get(i);
+
+                Object[] possibilities = {"0", "1", "2"};
+                int selection = Integer.parseInt(String.valueOf(JOptionPane.showInputDialog(
+                        null,
+                        "Wybierz drukarnię\n"
+                                + "albumy może drukować jedynie drukarnia nr. 2"+"\nDrukarnia:",
+                        "Wybór drukarni",
+                        JOptionPane.PLAIN_MESSAGE,
+                        null,
+                        possibilities,
+                        "1")));
+                System.out.println(selection);
+                PrintingHouse printingHouse = publisher.printingManagement.getListOfPrintingHouses().get(selection);
+                order.setPrintingHouse(printingHouse);
+                publisher.printingManagement.getListOfPrintOrders().remove(order);
+
+                if (selection!= 3) {
+                    int count = Integer.parseInt(JOptionPane.showInputDialog("Podaj ilość zamówionych egzemplarzy"));
+                    order.setCount(count);
+                    int result = JOptionPane.showConfirmDialog(null, "Wysłać do drukowania?", "Drukowanie",JOptionPane.OK_CANCEL_OPTION);
+                    switch (result) {
+                        case 0:
+                            printingHouse.print(order);
+                    }
+
                 }
                 refreshPage();
                 publisher.saveData();
@@ -145,4 +163,20 @@ public class PrintingManagementWindow extends JFrame implements ActionListener {
             refreshPage();
         }
     }
+
+//    private JPanel createPrintingOptionPanel() {
+//        JPanel panel = new JPanel();
+//        final JButton button1 = new JButton("Drukarnia nr. 1");
+//        final JButton button2 = new JButton("Drukarnia nr. 2");
+//        final JButton button3 = new JButton("Drukarnia nr. 3");
+//
+//        button1.addActionListener(this);
+//        button2.addActionListener(this);
+//        button3.addActionListener(this);
+//        panel.add(button1);
+//        panel.add(button2);
+//        panel.add(button3);
+//
+//        return panel;
+//    }
 }

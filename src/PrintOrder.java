@@ -7,7 +7,7 @@ public class PrintOrder implements Serializable {
     private LiteraryItem literaryItem;
 
     private int count;
-    private long printingHouseId;
+    private PrintingHouse printingHouse;
     private boolean isDone;
 
     public PrintOrder(LiteraryItem literaryItem, int count) {
@@ -24,8 +24,8 @@ public class PrintOrder implements Serializable {
         return count;
     }
 
-    public long getPrintingHouseId() {
-        return printingHouseId;
+    public PrintingHouse getPrintingHouse() {
+        return printingHouse;
     }
 
     public boolean isDone() {
@@ -40,8 +40,8 @@ public class PrintOrder implements Serializable {
         this.count = count;
     }
 
-    public void setPrintingHouseId(long printingHouseId) {
-        this.printingHouseId = printingHouseId;
+    public void setPrintingHouse(PrintingHouse printingHouse) {
+        this.printingHouse = printingHouse;
     }
 
     public void setDone(boolean done) {
@@ -50,6 +50,6 @@ public class PrintOrder implements Serializable {
 
     @Override
     public String toString() {
-        return literaryItem.getTitle();
+        return literaryItem.getTitle()+" zamowione egzemplarze: "+count;
     }
 }
