@@ -59,7 +59,8 @@ public class MainMenu extends JFrame implements ActionListener
 
         if(e.getSource() == but2){
             setVisible(false);
-            //PrintingManagementWindow printingManagement = new PrintingManagementWindow();
+            PrintingManagementWindow printingManagement = new PrintingManagementWindow(iconImage, this);
+//            JOptionPane.showMessageDialog(null,"alert","alert",JOptionPane.ERROR_MESSAGE);
         }
 
         if(e.getSource() == but3){

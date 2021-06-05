@@ -1,3 +1,5 @@
+import src.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -22,7 +24,7 @@ import java.awt.event.ActionListener;
 
         public ShopWindow(ImageIcon iconImage, MainMenu mainMenu) {
             super("Sklep");
-            contractsMenuIsChecked = false;
+//            contractsMenuIsChecked = false;
             this.mainMenu = mainMenu;
             this.k = 0;
             publisher = new Publisher();
@@ -94,6 +96,7 @@ import java.awt.event.ActionListener;
                 but[j].setText("" + publisher.shop.getLiteraryItems().get(j));
                 but[j].setFont(new Font("Arial", (Font.BOLD), 15));
                 but[j].setBounds(x/10, y/17+25*(j), x-200, 25);
+                but[j].addActionListener(this);
                 panel.add(but[j]);
                 j++;
             }
@@ -116,6 +119,25 @@ import java.awt.event.ActionListener;
 //            new AuthorMenu(this);
 //            return;
 //        }
+            for (int i=0; i<20; i++) {
+                if (e.getSource() == but[i])
+                {
+                   int count = Integer.parseInt(JOptionPane.showInputDialog("Podaj ilość którą chcesz zakupić"));
+//                    new LiteraryItemMenu(publisher.shop.getLiteraryItems().get(k*20+i),this );
+                    try {
+                        publisher.shop.getLiteraryItems().get(k*20+i).decreaseQuantity(count);
+                    } catch (WrongNumberException wrongNumberException) {
+                        JOptionPane.showMessageDialog(null, wrongNumberException.getMessage(),"Uwaga", JOptionPane.ERROR_MESSAGE);
+                        System.out.println(wrongNumberException.getMessage());
+                    } catch (OutOfStockExeption outOfStockExeption) {
+                        JOptionPane.showMessageDialog(null, outOfStockExeption.getMessage(),"Uwaga", JOptionPane.ERROR_MESSAGE);
+                        publisher.printingManagement.addPrintOrder(publisher.shop.orderReprint(outOfStockExeption.getLiteraryItem(),0));
+                    }
+                    refreshPage();
+                    publisher.saveData();
+                }
+            }
+
 
             if(e.getSource() == back)
             {

@@ -16,14 +16,11 @@ public class Book extends LiteraryItem implements Serializable {
     }
 
     public String toString() {
-        return "Book{" +
-                "isAlbum=" + isAlbum +
-                "isbn='" + isbn + '\'' +
-                ", price=" + price +
-                ", genre='" + genre + '\'' +
-                ", quantity=" + quantity +
-                ", title='" + title + '\'' +
-                '}';
+        return title+" Cena:"+price+" ilość w magazynie:"+quantity;
+    }
+
+    public String bookProperties() {
+        return title+" gatunek literacki:"+" Cena:"+price+" ilość w magazynie:"+quantity;
     }
 
     @Override

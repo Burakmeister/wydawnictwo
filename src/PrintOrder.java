@@ -1,6 +1,8 @@
 package src;
 
-public class PrintOrder {
+import java.io.Serializable;
+
+public class PrintOrder implements Serializable {
 
     private LiteraryItem literaryItem;
 
@@ -8,6 +10,11 @@ public class PrintOrder {
     private long printingHouseId;
     private boolean isDone;
 
+    public PrintOrder(LiteraryItem literaryItem, int count) {
+        this.literaryItem = literaryItem;
+        this.count = count;
+        this.isDone = false;
+    }
 
     public LiteraryItem getLiteraryItem() {
         return literaryItem;
@@ -39,5 +46,10 @@ public class PrintOrder {
 
     public void setDone(boolean done) {
         isDone = done;
+    }
+
+    @Override
+    public String toString() {
+        return literaryItem.getTitle();
     }
 }

@@ -40,7 +40,13 @@ public abstract class LiteraryItem implements Serializable {
 
     public String getTitle() { return title; }
 
-    public void decreaseQuantity(int count) {
+    public void decreaseQuantity(int count) throws WrongNumberException, OutOfStockExeption{
+        if (count<0 || count==0) {
+            throw new WrongNumberException(count);
+        }
+        if (count>quantity) {
+            throw new OutOfStockExeption(this);
+        }
         this.quantity -= count;
     }
 

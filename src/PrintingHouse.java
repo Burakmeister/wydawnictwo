@@ -6,7 +6,8 @@ public class PrintingHouse implements Serializable {
     private long id;
     private boolean isAlbumPrintable;
 
-    public PrintingHouse(boolean isAlbumPrintable) {
+    public PrintingHouse(boolean isAlbumPrintable, long id) {
+        this.id = id;
         this.isAlbumPrintable = isAlbumPrintable;
     }
 

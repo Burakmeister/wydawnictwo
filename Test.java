@@ -1,3 +1,4 @@
+import src.*;
 import java.util.Scanner;
 public class Test 
 {
@@ -9,15 +10,15 @@ public class Test
         while(true)
         {
             char menu;
-            for(int i=0; i<pub.planningDepartment.howManyAuthors(); i++)
-                System.out.println(pub.planningDepartment.getAuthor(i+1));
+            for(int i=0; i<pub.shop.getLiteraryItems().size(); i++)
+                System.out.println(pub.shop.getLiteraryItems().get(i));
             System.out.println("1.Dodaj");
             menu = scan.next().charAt(0);
             switch(menu)
             {
                 case '1':
                 {
-                    pub.planningDepartment.addAuthor("firstname", "surname", 20, "authorId");
+                    pub.shop.getLiteraryItems().add(new Book("34",3423423,34.3,"ksiazka", 34, "fantasy"));
                     break;
                 }
                 case '2':

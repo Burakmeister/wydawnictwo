@@ -1,17 +1,16 @@
-import src.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import planning_department.*;
+import src.*;
 
-public class Publisher implements Serializable, ShopInterface
+public class Publisher implements Serializable//, ShopInterface
 {
-    public PlanningDepartment planningDepartment;
     public PrintingManagement printingManagement;
     public Shop shop;
-
+    public PlanningDepartment planningDepartment;
 
 
     final private String filePath = "data.bin";
@@ -57,8 +56,7 @@ public class Publisher implements Serializable, ShopInterface
             return new Publisher();
         }
     }
-    @Override
-    public void reprint(ReprintOrder reprintOrder) {
-        printingManagement.prepareReprint(reprintOrder);
-    }
+    //public void reprint(ReprintOrder reprintOrder) {
+    //    printingManagement.prepareReprint(reprintOrder);
+    //}
 }
